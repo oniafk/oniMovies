@@ -1,11 +1,8 @@
-import { API_KEY } from "./key.js";
+import { API } from "./AxiosAPIRequest.js";
 
 async function getTrendingMovies() {
-  const response = await fetch(
-    `
-      https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
-  );
-  const data = await response.json();
+  const { data } = await API("trending/movie/day");
+
   const movies = data.results;
 
   movies.forEach((movie) => {

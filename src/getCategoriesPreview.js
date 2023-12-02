@@ -1,11 +1,8 @@
-import { API_KEY } from "./key.js";
+import { API } from "./AxiosAPIRequest.js";
 
 async function getCategoriesMoviesPreview() {
-  const response = await fetch(
-    `    
-        https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`
-  );
-  const data = await response.json();
+  const { data } = await API("genre/movie/list");
+
   const categories = data.genres;
 
   categories.forEach((category) => {
