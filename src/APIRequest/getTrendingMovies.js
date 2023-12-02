@@ -1,15 +1,15 @@
 import { API } from "./AxiosAPIRequest.js";
+import { elements } from "../handleNavigation/nodes.js";
 
 async function getTrendingMovies() {
   const { data } = await API("trending/movie/day");
 
   const movies = data.results;
 
-  movies.forEach((movie) => {
-    const trendingPreviewMoviesContainer = document.querySelector(
-      "#trendingPreview .trendingPreview-movieList"
-    );
+  const trendingPreviewMoviesContainer = elements.trendingMoviesPreviewList;
+  trendingPreviewMoviesContainer.innerHTML = "";
 
+  movies.forEach((movie) => {
     const movieContainer = document.createElement("div");
     movieContainer.classList.add("movie-container");
 

@@ -1,15 +1,16 @@
 import { API } from "./AxiosAPIRequest.js";
+import { elements } from "../handleNavigation/nodes.js";
 
 async function getCategoriesMoviesPreview() {
   const { data } = await API("genre/movie/list");
 
   const categories = data.genres;
 
-  categories.forEach((category) => {
-    const previewCategoriesContainer = document.querySelector(
-      "#categoriesPreview .categoriesPreview-list"
-    );
+  const previewCategoriesContainer = elements.categoriesPreviewList;
 
+  previewCategoriesContainer.innerHTML = "";
+
+  categories.forEach((category) => {
     const categoryContainer = document.createElement("div");
     categoryContainer.classList.add("category-container");
 
