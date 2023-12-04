@@ -17,10 +17,13 @@ function navigator() {
   } else {
     HomePage();
   }
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  4;
 }
 
 elements.searchFormBtn.addEventListener("click", () => {
-  location.hash = "#search=";
+  location.hash = "#search=" + elements.searchFormInput.value;
 });
 
 elements.trendingBtn.addEventListener("click", () => {

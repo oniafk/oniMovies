@@ -1,4 +1,5 @@
 import { elements } from "./nodes.js";
+import { getMoviesByCategory } from "../APIRequest/getMoviesByCategory.js";
 
 function categoriesPage() {
   console.log("categories");
@@ -15,6 +16,11 @@ function categoriesPage() {
   elements.categoriesPreviewSection.classList.add("inactive");
   elements.genericSection.classList.remove("inactive");
   elements.movieDetailSection.classList.add("inactive");
+
+  const [_, categoryData] = location.hash.split("=");
+  const [categoryId, categoryName] = categoryData.split("-");
+
+  getMoviesByCategory(categoryId, categoryName);
 }
 
 export { categoriesPage };

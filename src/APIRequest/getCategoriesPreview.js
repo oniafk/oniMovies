@@ -6,9 +6,7 @@ async function getCategoriesMoviesPreview() {
 
   const categories = data.genres;
 
-  const previewCategoriesContainer = elements.categoriesPreviewList;
-
-  previewCategoriesContainer.innerHTML = "";
+  elements.categoriesPreviewList.innerHTML = "";
 
   categories.forEach((category) => {
     const categoryContainer = document.createElement("div");
@@ -17,11 +15,14 @@ async function getCategoriesMoviesPreview() {
     const categoryTitle = document.createElement("h3");
     categoryTitle.classList.add("category-title");
     categoryTitle.setAttribute("id", `id${category.id}`);
+    categoryTitle.addEventListener("click", () => {
+      location.hash = `#category=${category.id}-${category.name}`;
+    });
     const categoryTitleText = document.createTextNode(category.name);
 
     categoryTitle.appendChild(categoryTitleText);
     categoryContainer.appendChild(categoryTitle);
-    previewCategoriesContainer.appendChild(categoryContainer);
+    elements.categoriesPreviewList.appendChild(categoryContainer);
   });
 }
 
