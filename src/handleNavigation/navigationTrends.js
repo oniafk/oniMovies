@@ -1,4 +1,5 @@
 import { elements } from "./nodes.js";
+import { getTrendingMoviesList } from "../APIRequest/getTrendingMoviesList.js";
 
 function trendsPage() {
   console.log("trendsPage");
@@ -15,6 +16,10 @@ function trendsPage() {
   elements.categoriesPreviewSection.classList.add("inactive");
   elements.genericSection.classList.remove("inactive");
   elements.movieDetailSection.classList.add("inactive");
+
+  elements.headerCategoryTitle.innerHTML = "Trending Movies";
+
+  getTrendingMoviesList();
 }
 
 export { trendsPage };

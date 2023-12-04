@@ -3,6 +3,7 @@ import { searchPage } from "./navigationSearch.js";
 import { moviePage } from "./navigationMovie.js";
 import { HomePage } from "./navigationHome.js";
 import { categoriesPage } from "./navigationCategory.js";
+
 import { elements } from "./nodes.js";
 
 function navigator() {
@@ -31,7 +32,7 @@ elements.trendingBtn.addEventListener("click", () => {
 });
 
 elements.arrowBtn.addEventListener("click", () => {
-  location.hash = "";
+  history.back();
 });
 
 window.addEventListener("DOMContentLoaded", navigator, false);
