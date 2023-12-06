@@ -1,4 +1,5 @@
 import { elements } from "./nodes.js";
+import { getMovieByID } from "../APIRequest/getMovieByID.js";
 
 function moviePage() {
   console.log("movie");
@@ -15,6 +16,9 @@ function moviePage() {
   elements.categoriesPreviewSection.classList.add("inactive");
   elements.genericSection.classList.add("inactive");
   elements.movieDetailSection.classList.remove("inactive");
+
+  const [_, movieID] = location.hash.split("=");
+  getMovieByID(movieID);
 }
 
 export { moviePage };

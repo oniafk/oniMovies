@@ -371,11 +371,12 @@ footer {
 
 .relatedMovies-scrollContainer {
   position: absolute;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
   width: calc(100vw - 24px);
   padding-bottom: 16px;
+  height: 250px;
 }
 
 .relatedMovies-scrollContainer .movie-container {
