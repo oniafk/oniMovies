@@ -1,6 +1,13 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+app.get('/api-key', (req, res) => {
+  res.send(process.env.API_KEY);
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {

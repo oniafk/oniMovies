@@ -1,13 +1,18 @@
-import { API_KEY } from "./key.js";
+let API;
 
-const API = axios.create({
-  baseURL: "https://api.themoviedb.org/3/",
-  headers: {
-    "Content-Type": "application/json;charset=utf-8",
-  },
-  params: {
-    api_key: API_KEY,
-  },
-});
+const APIPromise = fetch('/api-key')
+  .then((res) => res.text())
+  .then((key) => {
+    API = axios.create({
+      baseURL: 'https://api.themoviedb.org/3/',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      params: {
+        api_key: key,
+      },
+    });
+    return API;
+  });
 
-export { API };
+export { APIPromise as API };

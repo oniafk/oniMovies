@@ -1,9 +1,10 @@
-import { API } from "./AxiosAPIRequest.js";
-import { elements } from "../handleNavigation/nodes.js";
-import { renderMovieList } from "./renderMovieList.js";
+import { API } from './AxiosAPIRequest.js';
+import { elements } from '../handleNavigation/nodes.js';
+import { renderMovieList } from './renderMovieList.js';
 
 async function getSearchMovie(query) {
-  const { data } = await API("search/movie", {
+  const api = await API;
+  const { data } = await api.get('search/movie', {
     params: {
       query,
     },
