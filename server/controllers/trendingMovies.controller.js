@@ -6,8 +6,6 @@ async function getTrendingMovies() {
 
     const movies = data.results;
 
-    console.log(movies);
-
     return movies;
   } catch (error) {
     console.log(error.message);

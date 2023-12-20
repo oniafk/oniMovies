@@ -1,12 +1,10 @@
-import { API } from './AxiosAPIRequest.js';
 import { elements } from '../handleNavigation/nodes.js';
 import { renderMovieList } from './renderMovieList.js';
 
 async function getTrendingMovies() {
-  const api = await API;
-  const { data } = await api.get('trending/movie/day');
-
-  const movies = data.results;
+  const response = await fetch('http://localhost:3000/trending/movie/day');
+  const movies = await response.json();
+  console.log(movies);
 
   renderMovieList(movies, elements.trendingMoviesPreviewList);
 }

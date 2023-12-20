@@ -6,7 +6,7 @@ function routerAPIRequest(app) {
   const router = express.Router();
   app.use('/', router);
 
-  router.use('/trending', getTrendingMovies);
+  router.use('/trending/movie/day', getTrendingMovies);
 }
 
 module.exports = routerAPIRequest;
