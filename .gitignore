@@ -201,5 +201,3 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,windows,linux
 
-# key.js (API_KEY)
-src/key.js
