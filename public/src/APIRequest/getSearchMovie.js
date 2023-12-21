@@ -1,18 +1,22 @@
-import { API } from './AxiosAPIRequest.js';
 import { elements } from '../handleNavigation/nodes.js';
 import { renderMovieList } from './renderMovieList.js';
 
 async function getSearchMovie(query) {
-  const api = await API;
-  const { data } = await api.get('search/movie', {
-    params: {
-      query,
-    },
-  });
+  try {
+    const url = new URL('http://localhost:3000/search/movie');
+    url.searchParams.append('query', query);
 
-  const movies = data.results;
+    const response = await fetch(url.toString());
 
-  renderMovieList(movies, elements.genericSection);
+    if (!response.ok) {
+      throw new Error(`Error en la solicitud: ${response.statusText}`);
+    }
+
+    const movies = await response.json();
+    renderMovieList(movies, elements.genericSection);
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 
 export { getSearchMovie };

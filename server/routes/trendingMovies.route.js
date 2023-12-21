@@ -4,7 +4,8 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const movies = await getTrendingMovies();
+    const { query } = req.query;
+    const movies = await getTrendingMovies(query);
 
     res.status(200).json(movies);
   } catch (error) {

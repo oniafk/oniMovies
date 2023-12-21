@@ -1,14 +1,14 @@
 const express = require('express');
-const getTrendingMoviesList = require('../controllers/trendingMoviesList.controller.js');
+const getTrendingMoviesList = require('../controllers/TrendingMoviesList.controller');
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
   try {
     const movies = await getTrendingMoviesList();
 
     res.status(200).json(movies);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(error);
   }
 });
 
