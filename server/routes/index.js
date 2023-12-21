@@ -7,6 +7,7 @@ function routerAPIRequest(app) {
   app.use('/', router);
 
   router.use('/trending/movie/day', getTrendingMovies);
+  router.use('/trending/movie/week', getTrendingMovies);
 }
 
 module.exports = routerAPIRequest;
