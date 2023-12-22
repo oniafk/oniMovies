@@ -1,4 +1,3 @@
-import { API } from './AxiosAPIRequest.js';
 import { elements } from '../handleNavigation/nodes.js';
 import { renderCategoryList } from './renderCategoryList.js';
 import { getRelatedMoviesByID } from './getRelatedMoviesByID.js';
