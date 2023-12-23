@@ -1,0 +1,18 @@
+const api = require('./APIRequest.controller');
+
+async function getTrendingMovies() {
+  try {
+    const { data } = await api.get('trending/movie/day');
+
+    const movies = data.results;
+
+    console.log(movies);
+
+    return movies;
+  } catch (error) {
+    console.log(error.message);
+    throw new Error(error.message);
+  }
+}
+
+module.exports = getTrendingMovies;
