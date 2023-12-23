@@ -6,6 +6,7 @@ const getTrendingMoviesList = require('./trendingMoviesList.route.js');
 const relatedMoviesByIdRoute = require('./relatedMoviesById.route.js');
 const movieById = require('./movieById.route.js');
 const getGenres = require('./genrePreview.route.js');
+const moviesByCategoryRoute = require('./moviesByCategory.route.js');
 
 function routerAPIRequest(app) {
   const router = express.Router();
@@ -17,6 +18,7 @@ function routerAPIRequest(app) {
   router.get('/movie/:id/similar', relatedMoviesByIdRoute);
   router.get('/movie/:id', movieById);
   router.get('/category/movie/list', getGenres);
+  router.get('/discover/movie/:id', moviesByCategoryRoute);
 }
 
 module.exports = routerAPIRequest;
