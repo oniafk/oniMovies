@@ -9,8 +9,6 @@ async function movieById(req, res, next) {
     const id = req.params.id;
     const movies = await getdMoviesById(id);
 
-    console.log(movies, 'route');
-
     res.status(200).json(movies);
   } catch (error) {
     throw new Error(error.message);
