@@ -10,7 +10,7 @@ const moviesByCategoryRoute = require('./moviesByCategory.route.js');
 
 function routerAPIRequest(app) {
   const router = express.Router();
-  app.use('/', router);
+  app.use('/api/v1', router);
 
   router.use('/trending/movie/day', getTrendingMovies);
   router.use('/trending/movie/week', getTrendingMoviesList);
