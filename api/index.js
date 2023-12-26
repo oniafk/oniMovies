@@ -4,14 +4,6 @@ const app = express();
 
 const routerAPIRequest = require('./routes/index.js');
 
-app.get('/api-key', (req, res) => {
-  res.send(process.env.API_KEY);
-});
-
-routerAPIRequest(app);
-
-const PORT = process.env.PORT || 3000;
-
 const whiteList = [
   'https://oni-movies-frontend.vercel.app',
   'https://oni-movies-frontend-pu20316ey-manuel-arias-projects.vercel.app',
@@ -30,6 +22,14 @@ const options = {
   },
 };
 app.use(cors());
+
+routerAPIRequest(app);
+
+app.get('/api-key', (req, res) => {
+  res.send(process.env.API_KEY);
+});
+
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
