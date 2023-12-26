@@ -12,7 +12,14 @@ routerAPIRequest(app);
 
 const PORT = process.env.PORT || 3000;
 
-const whiteList = ['https://oni-movies-frontend.vercel.app'];
+const whiteList = [
+  'https://oni-movies-frontend.vercel.app',
+  'https://oni-movies-frontend-pu20316ey-manuel-arias-projects.vercel.app',
+  'https://oni-movies-frontend-git-main-manuel-arias-projects.vercel.app/',
+  'https://oni-movies-frontend.vercel.app/',
+  'https://oni-movies-frontend-pu20316ey-manuel-arias-projects.vercel.app/',
+  'https://oni-movies-frontend-git-main-manuel-arias-projects.vercel.app/',
+];
 const options = {
   origin: (origin, callback) => {
     if (whiteList.includes(origin)) {
