@@ -29,7 +29,7 @@ const options = {
     }
   },
 };
-app.use(cors(options));
+app.use(cors());
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
