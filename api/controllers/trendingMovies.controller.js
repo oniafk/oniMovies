@@ -41,7 +41,6 @@ async function getTrendingMovies() {
 
     return await fetchAndStoreTrendingMovies();
   } catch (error) {
-    console.error(error.message);
     throw new Error(error.message);
   }
 }
