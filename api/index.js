@@ -13,6 +13,7 @@ const whiteList = [
   'https://oni-movies-frontend.vercel.app/',
   'https://oni-movies-frontend-pu20316ey-manuel-arias-projects.vercel.app/',
   'https://oni-movies-frontend-git-main-manuel-arias-projects.vercel.app/',
+  'https://localhost:10000',
 ];
 const options = {
   origin: (origin, callback) => {
