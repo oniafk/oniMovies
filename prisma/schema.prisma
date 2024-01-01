@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model movieDB_API_responses {
+  id            Int                             @id @default(autoincrement())
+  createdAt     DateTime                        @default(now())
+  data          Json
+  contollerType responses_contollerType
+  query         String?
+}
+
+enum responses_contollerType {
+  generator
+  movieById
+  MovieByCategory
+  relatedMovies
+  searchMovies
+  trendingMovies
+  trendingMoviesList
+}

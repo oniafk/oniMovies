@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+// const {PrismaClient} = require('@prisma/client')
 
 const routerAPIRequest = require('./routes/index.js');
+// const prisma = new PrismaClient();
 
 const whiteList = [
   'https://oni-movies-frontend.vercel.app',
@@ -21,7 +23,7 @@ const options = {
     }
   },
 };
-app.use(cors(options));
+app.use(cors());
 
 routerAPIRequest(app);
 
