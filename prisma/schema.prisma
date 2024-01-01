@@ -18,6 +18,7 @@ model movieDB_API_responses {
 
 enum responses_contollerType {
   generator
+  genres
   movieById
   MovieByCategory
   relatedMovies
