@@ -13,6 +13,7 @@ const moviesByCategoryRoute = require('./moviesByCategory.route.js');
 const getWeatherByDefault = require('./weatherAPIRouter/weatherDefault.router.js');
 const getWeatherByZipcode = require('./weatherAPIRouter/weatherByZipcode.router.js');
 const getForecastByZipcode = require('./weatherAPIRouter/forecastByZipcode.router.js');
+const getForecastDefault = require('./weatherAPIRouter/weatherDefault.router.js');
 
 function routerAPIRequest(app) {
   const router = express.Router();
@@ -29,6 +30,7 @@ function routerAPIRequest(app) {
   router.get('/weather/default', getWeatherByDefault);
   router.get('/weather/zipcode/:zipCode', getWeatherByZipcode);
   router.get('/forecast/zipcode/:zipCode', getForecastByZipcode);
+  router.get('/forecast/default', getForecastDefault);
 }
 
 module.exports = routerAPIRequest;
