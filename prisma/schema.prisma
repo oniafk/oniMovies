@@ -9,14 +9,14 @@ datasource db {
 }
 
 model movieDB_API_responses {
-  id            Int                             @id @default(autoincrement())
-  createdAt     DateTime                        @default(now())
+  id            Int                            @id @default(autoincrement())
+  createdAt     DateTime                       @default(now())
   data          Json
-  contollerType responses_contollerType
+  contollerType contollerType
   query         String?
 }
 
-enum responses_contollerType {
+enum contollerType {
   generator
   genres
   movieById
